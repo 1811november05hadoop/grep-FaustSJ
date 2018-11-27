@@ -1,0 +1,40 @@
+#1
+Notes: ^ marks the start of the line
+grep '^Z' cities.txt
+
+#2 
+Notes: $ marks the end of the line
+grep 'gan$' cities.txt
+
+#3
+Notes: [] represents one of the characters listed within 
+grep '^[ADE]' cities.txt
+
+#4 
+Notes: of course, grep allows literal characters as well
+grep '[A-Z]ar' cities.txt
+
+#5 
+Notes: [^] means not anything listed within
+grep '^[^C]' cities.txt
+
+#6
+Notes: {} defines how many of the previous character there should be 
+egrep '[A-Z][^ ]{12}[a-z]+' cities.txt
+
+#7
+Notes: wc -l counts the number of lines matched 
+grep '^B' cities.txt | wc -l
+
+#8
+Notes: -o outputs every found d so wc can count them 
+grep -o 'd' cities.txt | wc -l
+
+#9
+Notes: . matches any one character
+egrep '(.)\1$' cities.txt
+
+#10
+Notes: () tells grep to remember whatever was inside and index back to it
+with \n where n is the nth () group 
+egrep -iw '(.)(.).\2\1' cities.txt
